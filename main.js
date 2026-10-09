@@ -149,8 +149,23 @@
     onFrame();
   }
 
-  /* ---------- Menu ---------- */
+  /* ---------- Nav colours ----------
+     The bar is transparent, so it reads the section sitting under it and picks light or purple ink. */
   var nav = document.getElementById('nav');
+  var navZones = Array.prototype.slice.call(document.querySelectorAll('main > section, footer'));
+  function tintNav() {
+    var under = null;
+    for (var i = 0; i < navZones.length; i++) {
+      var r = navZones[i].getBoundingClientRect();
+      if (r.top <= 34 && r.bottom > 34) { under = navZones[i]; break; }
+    }
+    nav.classList.toggle('is-on-light', !!under && under.getAttribute('data-nav') !== 'dark');
+  }
+  tintNav();
+  window.addEventListener('scroll', tintNav, { passive: true });
+  window.addEventListener('resize', tintNav);
+
+  /* ---------- Menu ---------- */
   var menuBtn = document.getElementById('menu-btn');
   function setMenu(open) {
     nav.classList.toggle('is-open', open);

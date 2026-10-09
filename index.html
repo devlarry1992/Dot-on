@@ -8,8 +8,8 @@
 <meta property="og:title" content="Dot On Massage Therapy &amp; Spa | Massage &amp; Spa in Calabar">
 <meta property="og:description" content="Professional massage therapy, wellness and beauty treatments in Calabar, Cross River State.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1c1004">
-<link rel="icon" href="https://framerusercontent.com/images/FXa3mad8nNdquRlxSvJxRb8njc.svg">
+<meta name="theme-color" content="#140a22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%233a1a5e'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23c4a7e7'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500&family=Inter:wght@600&family=Lato:wght@400;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 <nav class="nav" id="nav" aria-label="Main">
   <div class="nav__bar">
     <a class="nav__logo" href="#hero" aria-label="Dot On, back to top">
-      <img src="https://framerusercontent.com/images/FXa3mad8nNdquRlxSvJxRb8njc.svg" alt="" width="22" height="24">
+      <i class="mark" aria-hidden="true"></i>
       <span><b>Dot</b>On</span>
     </a>
     <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav-sheet">
@@ -47,9 +47,9 @@
 <main class="main">
 
   <!-- HERO -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" data-nav="dark">
     <div class="parallax hero__bg" data-parallax="1.4" data-mount-zoom>
-      <img src="https://framerusercontent.com/images/mgLkGijwZYaJhAOK1XhennzsRUU.png" alt="Spa Showroom" fetchpriority="high">
+      <img src="assets/photos/hero.jpg" alt="Treatment room at Dot On Massage Therapy &amp; Spa" fetchpriority="high">
     </div>
     <div class="hero__container">
       <div class="hero__ratings-row">
@@ -84,9 +84,9 @@
       <p class="t-body about__text" data-appear="rise">Dot On Massage Therapy &amp; Spa is a professional massage and wellness business based in Calabar, Cross River State. Our goal is to create a welcoming environment where clients can relax, take care of their bodies and enjoy quality wellness and beauty treatments.</p>
     </div>
     <div class="about__media" data-appear="lift">
-      <img src="https://framerusercontent.com/images/h7Ra51HOBh91QHfV4xcukwbjvI.jpg" alt="Relaxing spa massage treatment">
-      <img src="https://framerusercontent.com/images/OYqrhgXhLBtd39AD7tlPC5ShJvY.jpg" alt="Personalised facial treatment">
-      <img src="https://framerusercontent.com/images/Q2aazBpgyQi6xleHMmhnHT3j5yQ.jpg" alt="Calming body wellness treatment">
+      <img src="assets/photos/about-1.jpg" alt="The Dot On wall sign">
+      <img src="assets/photos/about-2.jpg" alt="Massage beds in the treatment room">
+      <img src="assets/photos/about-3.jpg" alt="A prepared treatment bed">
     </div>
     <div class="stats" data-appear="rise">
       <div class="stat">
@@ -117,37 +117,15 @@
         </div>
         <p class="t-body process__sub" data-appear="rise">We provide personalised treatments in a comfortable, peaceful and professional environment. Come in, relax and let us take care of the rest.</p>
       </header>
-      <div class="process__cards">
-        <div class="process__slot">
-          <article class="pcard" data-slide="-1">
-            <span class="pcard__frame" aria-hidden="true"></span>
-            <div class="pcard__body">
-              <div class="parallax pcard__img" data-parallax="1.5"><img src="https://framerusercontent.com/images/h7Ra51HOBh91QHfV4xcukwbjvI.jpg" alt="" loading="lazy"></div>
-              <h3 class="t-h6">1. Professional service</h3>
-            </div>
-          </article>
-        </div>
-        <div class="process__slot">
-          <article class="pcard" data-slide="1">
-            <span class="pcard__frame" aria-hidden="true"></span>
-            <div class="pcard__body">
-              <div class="parallax pcard__img" data-parallax="1.5"><img src="https://framerusercontent.com/images/Q2aazBpgyQi6xleHMmhnHT3j5yQ.jpg" alt="" loading="lazy"></div>
-              <h3 class="t-h6">2. Personalised experience</h3>
-            </div>
-          </article>
-        </div>
-        <div class="process__slot">
-          <article class="pcard" data-slide="-1">
-            <span class="pcard__frame" aria-hidden="true"></span>
-            <div class="pcard__body">
-              <div class="parallax pcard__img" data-parallax="1.5"><img src="https://framerusercontent.com/images/DYH2EVLhRPGydeaF5sVZVxoD4SM.jpg" alt="" loading="lazy"></div>
-              <h3 class="t-h6">3. Relaxing environment</h3>
-            </div>
-          </article>
-        </div>
-        <div class="process__space" aria-hidden="true"></div>
-      </div>
     </div>
+    <div class="steps" data-appear="rise">
+      <div class="step"><i class="step__art step__art--1" aria-hidden="true"></i><p class="t-body">Professional service</p></div>
+      <span class="steps__line" aria-hidden="true"><i></i></span>
+      <div class="step"><i class="step__art step__art--2" aria-hidden="true"></i><p class="t-body">Personalised experience</p></div>
+      <span class="steps__line" aria-hidden="true"><i></i></span>
+      <div class="step"><i class="step__art step__art--3" aria-hidden="true"></i><p class="t-body">Relaxing environment</p></div>
+    </div>
+    <a class="btn btn--dark process__btn" href="#services" data-appear="rise"><span class="btn__fill" aria-hidden="true"></span><span class="swap"><span class="swap__track"><span>View Services</span><span aria-hidden="true">View Services</span></span></span></a>
   </section>
 
   <!-- WHY CHOOSE US: the client's five reasons, in the card grid the template used for reviews -->
@@ -168,7 +146,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="services" id="services">
+  <section class="services" id="services" data-nav="dark">
     <div class="services__grid">
       <header class="services__title">
         <h2 class="t-h2" data-words>Our Services</h2>
@@ -176,7 +154,7 @@
         <img class="services__art" src="assets/illustration-face.svg" alt="" loading="lazy">
       </header>
 
-      <a class="scard" href="#cta" style="--img:url('https://framerusercontent.com/images/DYH2EVLhRPGydeaF5sVZVxoD4SM.jpg')">
+      <a class="scard" href="#cta" style="--img:url('assets/photos/service-1.jpg')">
         <div class="scard__veil">
           <h3 class="t-h4">Relaxation Massage</h3>
           <div class="scard__content"><ul>
@@ -184,7 +162,7 @@
           </ul><p class="scard__total"><span class="t-h6">From</span><span class="scard__price"><span class="t-h6">₦</span><span class="t-h3">10,000</span></span></p></div>
         </div>
       </a>
-      <a class="scard" href="#cta" style="--img:url('https://framerusercontent.com/images/Sas7g92sbpYeHzGxGi8q9YOOZsI.png')">
+      <a class="scard" href="#cta" style="--img:url('assets/photos/service-2.jpg')">
         <div class="scard__veil">
           <h3 class="t-h4">Therapeutic Massage</h3>
           <div class="scard__content"><ul>
@@ -192,7 +170,7 @@
           </ul><p class="scard__total"><span class="t-h6">From</span><span class="scard__price"><span class="t-h6">₦</span><span class="t-h3">40,000</span></span></p></div>
         </div>
       </a>
-      <a class="scard" href="#cta" style="--img:url('https://framerusercontent.com/images/Q2aazBpgyQi6xleHMmhnHT3j5yQ.jpg')">
+      <a class="scard" href="#cta" style="--img:url('assets/photos/service-3.jpg')">
         <div class="scard__veil">
           <h3 class="t-h4">Signature Massage</h3>
           <div class="scard__content"><ul>
@@ -200,7 +178,7 @@
           </ul><p class="scard__total"><span class="t-h6">From</span><span class="scard__price"><span class="t-h6">₦</span><span class="t-h3">90,000</span></span></p></div>
         </div>
       </a>
-      <a class="scard" href="#cta" style="--img:url('https://framerusercontent.com/images/h7Ra51HOBh91QHfV4xcukwbjvI.jpg')">
+      <a class="scard" href="#cta" style="--img:url('assets/photos/service-4.jpg')">
         <div class="scard__veil">
           <h3 class="t-h4">Beauty &amp; Smile</h3>
           <div class="scard__content"><ul>
@@ -208,7 +186,7 @@
           </ul><p class="scard__total"><span class="t-h6">From</span><span class="scard__price"><span class="t-h6">₦</span><span class="t-h3">10,000</span></span></p></div>
         </div>
       </a>
-      <a class="scard" href="#cta" style="--img:url('https://framerusercontent.com/images/DYH2EVLhRPGydeaF5sVZVxoD4SM.jpg')">
+      <a class="scard" href="#cta" style="--img:url('assets/photos/service-5.jpg')">
         <div class="scard__veil">
           <h3 class="t-h4">Body &amp; Feet</h3>
           <div class="scard__content"><ul>
@@ -280,7 +258,7 @@
       <div class="mobile__media" data-appear="lift" data-threshold="0.3">
         <div class="tm__images">
           <div class="tm__stack">
-            <img src="https://framerusercontent.com/images/7tqoPEUH2FGwNmbwqYkOgdT74k.png" alt="A massage therapist at work" loading="lazy">
+            <img src="assets/photos/mobile.jpg" alt="Treatment beds at Dot On Massage Therapy &amp; Spa" loading="lazy">
             <p class="mobile__note"><span class="t-biglabel">Good to know</span><span class="t-body">Mobile massage services may be available depending on location and therapist availability.</span></p>
           </div>
           <span class="tm__frame" aria-hidden="true"></span>
@@ -290,8 +268,8 @@
   </section>
 
   <!-- CTA / BOOKING -->
-  <section class="cta" id="cta">
-    <div class="parallax cta__bg" data-parallax="1.5"><img src="https://framerusercontent.com/images/7tqoPEUH2FGwNmbwqYkOgdT74k.png" alt="Massaging a customer" loading="lazy"></div>
+  <section class="cta" id="cta" data-nav="dark">
+    <div class="parallax cta__bg" data-parallax="1.5"><img src="assets/photos/cta.jpg" alt="" loading="lazy"></div>
     <div class="cta__panel">
       <header class="cta__head">
         <h2 class="t-h2" data-words>Ready to Relax? Book Your Session</h2>
@@ -324,7 +302,7 @@
         <h2 class="t-h2" data-words>Everything You Need to Know.</h2>
         <p class="t-body" data-appear="rise">Booking, location and mobile massage, answered.</p>
       </header>
-      <img class="faq__img" src="https://framerusercontent.com/images/nUnGtAEPfgxjT0fwFbzQrqnUyz0.png" alt="Spa guest checking her appointment details on her phone" loading="lazy" data-appear="lift" data-threshold="0.3">
+      <img class="faq__img" src="assets/photos/faq.jpg" alt="The lit Dot On Massage Therapy &amp; Spa sign in the treatment room" loading="lazy" data-appear="lift" data-threshold="0.3">
     </div>
     <div class="faq__right">
       <div class="acc" data-appear="lift" data-threshold="0.3">
@@ -351,14 +329,14 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="parallax footer__bg" data-parallax="1.5"><img src="https://framerusercontent.com/images/mGhGb2FUId1x1vbFnUgRhpiSpl8.png" alt="" loading="lazy"></div>
+<footer class="footer" data-nav="dark">
+  <div class="parallax footer__bg" data-parallax="1.5"><img src="assets/photos/footer.jpg" alt="" loading="lazy"></div>
   <div class="footer__content">
     <div class="footer__info">
       <div class="footer__row">
         <div class="footer__left">
           <div class="footer__about">
-            <a href="#hero" aria-label="Back to top"><img src="https://framerusercontent.com/images/FXa3mad8nNdquRlxSvJxRb8njc.svg" alt="" width="40" height="44"></a>
+            <a href="#hero" aria-label="Back to top"><i class="mark mark--lg" aria-hidden="true"></i></a>
             <p class="t-small">Relax. Restore. Rejuvenate. Professional massage, wellness and beauty treatments in Calabar, Cross River State.</p>
           </div>
           <div class="footer__contact">
