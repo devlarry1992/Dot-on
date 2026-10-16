@@ -347,6 +347,49 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .mobile__note .t-biglabel { font-size: 12px; letter-spacing: 3px; color: var(--gold); }
 .mobile__note .t-body { color: var(--light-bg); }
 
+/* ---------- Gallery ----------
+   A native scroll-snap row, so touch swipe and trackpads work with no library; the buttons
+   just scroll it. Tiles are 9:16 because almost every clip on the channel is a Short. */
+.gallery { display: flex; flex-direction: column; gap: 40px; }
+.gallery__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 0 var(--pad); }
+.gallery__intro { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; max-width: 640px; }
+.gallery__intro .t-h2 { text-align: left; }
+.gallery__intro .t-body { color: var(--charcoal); }
+.gallery__nav { display: flex; gap: 16px; flex: none; }
+.gallery__nav .slide-btn { width: 64px; height: 64px; transition: opacity .3s var(--tween); }
+.gallery__nav .slide-btn:disabled { opacity: .35; cursor: default; }
+.gallery__viewport { width: 100%; }
+.gallery__track { display: flex; gap: 12px; padding: 0 var(--pad); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--pad); scrollbar-width: none; overscroll-behavior-x: contain; cursor: grab; }
+.gallery__track::-webkit-scrollbar { display: none; }
+.gallery__track.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.gtile { flex: none; width: clamp(220px, 21vw, 300px); aspect-ratio: 9 / 16; scroll-snap-align: start; }
+.gtile__btn { position: relative; display: block; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: var(--bg); }
+.gtile__btn img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--tween); pointer-events: none; }
+/* Clip thumbnails come straight from YouTube, so they get the same purple veil the photos were graded with. */
+.gtile--video .gtile__btn::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(58, 26, 94, .15) 0%, rgba(20, 10, 34, .75) 100%); mix-blend-mode: multiply; }
+.gtile__play { position: absolute; left: 50%; top: 50%; z-index: 2; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: rgba(240, 240, 240, .2); box-shadow: inset 0 0 0 2px var(--gold); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .4s var(--tween), background-color .4s var(--tween); }
+.gtile__play::after { content: ""; position: absolute; left: 26px; top: 21px; border-style: solid; border-width: 11px 0 11px 17px; border-color: transparent transparent transparent var(--light-bg); }
+.gtile__cap { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2; font-family: var(--serif); font-weight: 500; font-size: 22px; line-height: 1.1; text-align: left; color: var(--light-bg); }
+@media (hover: hover) {
+  .gtile__btn:hover img { transform: scale(1.05); }
+  .gtile__btn:hover .gtile__play { transform: scale(1.08); background: rgba(196, 167, 231, .35); }
+}
+.gallery__foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 0 var(--pad); }
+.gallery__bar { position: relative; flex: 1; max-width: 420px; height: 2px; background: var(--line); overflow: hidden; }
+.gallery__bar i { position: absolute; left: 0; top: 0; height: 100%; width: var(--w, 20%); transform: translateX(var(--x, 0)); background: var(--bg); transition: transform .3s var(--tween); }
+.gallery__more { font-size: 14px; letter-spacing: .01em; text-transform: uppercase; color: var(--headline); white-space: nowrap; }
+.gallery__more:hover { color: var(--bg); }
+
+.lightbox { width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(20, 10, 34, .92); }
+.lightbox::backdrop { background: transparent; }
+.lightbox[open] { display: flex; justify-content: center; align-items: center; }
+.lightbox__stage { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; padding: 64px 24px 24px; }
+.lightbox__stage img { max-width: 100%; max-height: 100%; border-radius: 16px; object-fit: contain; }
+.lightbox__stage iframe { border: 0; border-radius: 16px; background: #000; }
+.lightbox__frame--short { height: min(86vh, 900px); aspect-ratio: 9 / 16; max-width: 100%; }
+.lightbox__frame--wide { width: min(1100px, 100%); aspect-ratio: 16 / 9; }
+.lightbox__close { position: absolute; top: 16px; right: 20px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; font-size: 28px; line-height: 1; color: var(--light-bg); box-shadow: inset 0 0 0 2px var(--gold); }
+
 /* ---------- CTA ---------- */
 .cta { display: flex; align-items: center; gap: 80px; min-height: 110vh; padding: 24px 24px 24px var(--pad); background: var(--bg); z-index: 1; }
 .cta__panel { position: relative; z-index: 1; flex: 1; max-width: 600px; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 36px; border-radius: 12px; overflow: clip; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
@@ -444,6 +487,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .tm__row { gap: 40px; }
   .mobile__row { gap: 40px; }
   .mobile__places li { font-size: 20px; padding: 16px 18px; }
+  .gallery { gap: 32px; }
+  .gtile { width: clamp(200px, 30vw, 280px); }
   .cta { min-height: 100vh; padding: 24px; }
   .cta__panel { padding: 32px; }
   .faq { flex-direction: column; align-items: flex-start; gap: 30px; padding: 0 24px; }
@@ -514,6 +559,15 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .mobile__places li { font-size: 16px; padding: 14px 16px; border-radius: 12px; white-space: normal; }
   .mobile__media { justify-content: center; }
   .mobile__note { left: 12px; right: 12px; bottom: 12px; padding: 14px 16px; }
+  .gallery { gap: 24px; }
+  .gallery__head { align-items: flex-start; flex-direction: column; }
+  .gallery__nav { display: none; }
+  .gtile { width: 64vw; }
+  .gtile__cap { font-size: 18px; left: 16px; right: 16px; bottom: 16px; }
+  .gtile__play { width: 52px; height: 52px; margin: -26px 0 0 -26px; }
+  .gtile__play::after { left: 21px; top: 16px; border-width: 10px 0 10px 15px; }
+  .gallery__foot { flex-direction: column; align-items: flex-start; }
+  .gallery__bar { width: 100%; max-width: none; flex: none; }
   .cta { padding: 12px; }
   .cta__panel { max-width: none; gap: 20px; padding: 24px; }
   .faq { gap: 40px; }

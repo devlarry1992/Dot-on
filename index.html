@@ -35,6 +35,7 @@
       <li><a class="roll roll--menu" href="#about" aria-label="Main navigation-About"><span class="roll__track"><span>About</span><span aria-hidden="true">About</span></span></a></li>
       <li><a class="roll roll--menu" href="#services" aria-label="Main navigation-Service"><span class="roll__track"><span>Service</span><span aria-hidden="true">Service</span></span></a></li>
       <li><a class="roll roll--menu" href="#prices" aria-label="Main navigation-Prices"><span class="roll__track"><span>Prices</span><span aria-hidden="true">Prices</span></span></a></li>
+      <li><a class="roll roll--menu" href="#gallery" aria-label="Main navigation-Gallery"><span class="roll__track"><span>Gallery</span><span aria-hidden="true">Gallery</span></span></a></li>
       <li><a class="roll roll--menu" href="#cta" aria-label="Main navigation-Contact"><span class="roll__track"><span>Contact</span><span aria-hidden="true">Contact</span></span></a></li>
     </ul>
     <div class="nav__contact">
@@ -267,6 +268,46 @@
     </div>
   </section>
 
+  <!-- GALLERY: photos of the spa and clips from its YouTube channel -->
+  <section class="gallery" id="gallery">
+    <header class="gallery__head">
+      <div class="gallery__intro">
+        <p class="t-biglabel" data-appear="rise">Gallery</p>
+        <h2 class="t-h2" data-words>Inside Dot On</h2>
+        <p class="t-body" data-appear="rise">A look around the spa, and treatments from our YouTube channel.</p>
+      </div>
+      <div class="gallery__nav" data-appear="rise">
+        <button class="slide-btn slide-btn--left" type="button" id="gallery-prev" aria-label="Previous"><span class="slide-btn__clip"><span class="slide-btn__track"><img src="assets/arrow-a.svg" alt=""><img src="assets/arrow-a.svg" alt=""></span></span></button>
+        <button class="slide-btn slide-btn--right" type="button" id="gallery-next" aria-label="Next"><span class="slide-btn__clip"><span class="slide-btn__track"><img src="assets/arrow-c.svg" alt=""><img src="assets/arrow-c.svg" alt=""></span></span></button>
+      </div>
+    </header>
+    <div class="gallery__viewport" data-appear="lift" data-threshold="0.2">
+      <ul class="gallery__track" id="gallery-track" aria-label="Photos and videos">
+        <li class="gtile"><button class="gtile__btn" type="button" data-photo="assets/photos/gallery-1.jpg" aria-label="View photo: The lit Dot On Massage Therapy &amp; Spa sign"><img src="assets/photos/gallery-1.jpg" alt="The lit Dot On Massage Therapy &amp; Spa sign" loading="lazy"></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="UP7W3Kph4Iw" data-short="1" aria-label="Play video: Foot detox"><img src="https://i.ytimg.com/vi/UP7W3Kph4Iw/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Foot detox</span></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="oj62nYqBbu4" data-short="1" aria-label="Play video: Facial treatment"><img src="https://i.ytimg.com/vi/oj62nYqBbu4/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Facial treatment</span></button></li>
+        <li class="gtile"><button class="gtile__btn" type="button" data-photo="assets/photos/gallery-2.jpg" aria-label="View photo: The purple-lit treatment room"><img src="assets/photos/gallery-2.jpg" alt="The purple-lit treatment room" loading="lazy"></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="fnBOt1B0XVU" data-short="1" aria-label="Play video: Wood therapy"><img src="https://i.ytimg.com/vi/fnBOt1B0XVU/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Wood therapy</span></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="X4edH-G42nU" aria-label="Play video: How her massage journey started"><img src="https://i.ytimg.com/vi/X4edH-G42nU/maxresdefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">How her massage journey started</span></button></li>
+        <li class="gtile"><button class="gtile__btn" type="button" data-photo="assets/photos/gallery-3.jpg" aria-label="View photo: Two massage beds by the window"><img src="assets/photos/gallery-3.jpg" alt="Two massage beds by the window" loading="lazy"></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="amZ96fjiYeY" data-short="1" aria-label="Play video: Foot massage"><img src="https://i.ytimg.com/vi/amZ96fjiYeY/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Foot massage</span></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="zOGqF9HwvP8" data-short="1" aria-label="Play video: Facial care"><img src="https://i.ytimg.com/vi/zOGqF9HwvP8/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Facial care</span></button></li>
+        <li class="gtile"><button class="gtile__btn" type="button" data-photo="assets/photos/gallery-4.jpg" aria-label="View photo: Treatment room with lantern light"><img src="assets/photos/gallery-4.jpg" alt="Treatment room with lantern light" loading="lazy"></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="f3FS6D4nQWE" data-short="1" aria-label="Play video: Wellness"><img src="https://i.ytimg.com/vi/f3FS6D4nQWE/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Wellness</span></button></li>
+        <li class="gtile gtile--video"><button class="gtile__btn" type="button" data-video="xIq26MUQ04w" data-short="1" aria-label="Play video: Refreshing moments"><img src="https://i.ytimg.com/vi/xIq26MUQ04w/oardefault.jpg" alt="" loading="lazy"><span class="gtile__play" aria-hidden="true"></span><span class="gtile__cap">Refreshing moments</span></button></li>
+      </ul>
+    </div>
+    <div class="gallery__foot">
+      <span class="gallery__bar" aria-hidden="true"><i id="gallery-progress"></i></span>
+      <a class="gallery__more" href="https://www.youtube.com/@dotonmassagetherapy" target="_blank" rel="noopener">More on YouTube ↗</a>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Gallery viewer">
+    <button class="lightbox__close" type="button" id="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox__stage" id="lightbox-stage"></div>
+  </dialog>
+
   <!-- CTA / BOOKING -->
   <section class="cta" id="cta" data-nav="dark">
     <div class="parallax cta__bg" data-parallax="1.5"><img src="assets/photos/cta.jpg" alt="" loading="lazy"></div>
@@ -351,12 +392,14 @@
             <li><a class="roll" href="#about" aria-label="Go to the About Dot On section"><span class="roll__track"><span>About</span><span aria-hidden="true">About</span></span></a></li>
             <li><a class="roll" href="#services" aria-label="Go to Dot On services"><span class="roll__track"><span>Service</span><span aria-hidden="true">Service</span></span></a></li>
             <li><a class="roll" href="#prices" aria-label="See Dot On prices"><span class="roll__track"><span>Prices</span><span aria-hidden="true">Prices</span></span></a></li>
+            <li><a class="roll" href="#gallery" aria-label="See the Dot On gallery"><span class="roll__track"><span>Gallery</span><span aria-hidden="true">Gallery</span></span></a></li>
             <li><a class="roll" href="#cta" aria-label="Book a Dot On appointment"><span class="roll__track"><span>Contact</span><span aria-hidden="true">Contact</span></span></a></li>
           </ul>
         </div>
         <span class="footer__divider" aria-hidden="true"></span>
         <ul class="footer__social">
           <li><a class="sm-link" href="https://www.instagram.com/dot_on_massage/" target="_blank" rel="noopener" aria-label="Dot On Instagram profile">Instagram</a></li>
+          <li><a class="sm-link" href="https://www.youtube.com/@dotonmassagetherapy" target="_blank" rel="noopener" aria-label="Dot On on YouTube">YouTube</a></li>
           <li><a class="sm-link" href="https://wa.me/2347068626727" target="_blank" rel="noopener" aria-label="Chat with Dot On on WhatsApp">WhatsApp</a></li>
         </ul>
       </div>

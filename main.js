@@ -159,7 +159,8 @@
       var r = navZones[i].getBoundingClientRect();
       if (r.top <= 34 && r.bottom > 34) { under = navZones[i]; break; }
     }
-    nav.classList.toggle('is-on-light', !!under && under.getAttribute('data-nav') !== 'dark');
+    // The gaps between sections show the light page ground, so 'nothing under the bar' counts as light.
+    nav.classList.toggle('is-on-light', !under || under.getAttribute('data-nav') !== 'dark');
   }
   tintNav();
   window.addEventListener('scroll', tintNav, { passive: true });
@@ -207,6 +208,79 @@
     });
   });
 
+  /* ---------- Gallery carousel ---------- */
+  var track = document.getElementById('gallery-track');
+  if (track) {
+    var prev = document.getElementById('gallery-prev');
+    var next = document.getElementById('gallery-next');
+    var bar = document.getElementById('gallery-progress');
+    var step = function () { var t = track.querySelector('.gtile'); return t ? (t.getBoundingClientRect().width + 12) * 2 : 300; };
+    var update = function () {
+      var max = track.scrollWidth - track.clientWidth;
+      var share = track.clientWidth / track.scrollWidth;
+      bar.style.setProperty('--w', (share * 100).toFixed(1) + '%');
+      bar.style.setProperty('--x', (max > 0 ? (track.scrollLeft / max) * ((1 - share) / share) * 100 : 0).toFixed(1) + '%');
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max - 2;
+    };
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: reduce ? 'auto' : 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: reduce ? 'auto' : 'smooth' }); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    // Mouse drag on desktop; touch and trackpads already scroll natively.
+    var down = null, moved = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = { x: e.clientX, left: track.scrollLeft }; moved = false;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - down.x;
+      if (!moved && Math.abs(dx) > 5) { moved = true; track.classList.add('is-dragging'); }
+      if (moved) track.scrollLeft = down.left - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = null;
+      if (moved) {
+        track.classList.remove('is-dragging');
+        // a drag should not also open the tile it ended on
+        track.addEventListener('click', function swallow(ev) { ev.stopPropagation(); ev.preventDefault(); track.removeEventListener('click', swallow, true); }, true);
+      }
+    });
+
+    // Lightbox: photos open full size, clips play from YouTube's no-cookie player.
+    var box = document.getElementById('lightbox');
+    var stage = document.getElementById('lightbox-stage');
+    var closeBox = function () { if (box.open) box.close(); };
+    box.addEventListener('close', function () { stage.innerHTML = ''; if (lenis) lenis.start(); });
+    document.getElementById('lightbox-close').addEventListener('click', closeBox);
+    box.addEventListener('click', function (e) { if (e.target === box || e.target === stage) closeBox(); });
+    track.addEventListener('click', function (e) {
+      var btn = e.target.closest('.gtile__btn');
+      if (!btn) return;
+      stage.innerHTML = '';
+      if (btn.dataset.photo) {
+        var img = document.createElement('img');
+        img.src = btn.dataset.photo;
+        img.alt = btn.querySelector('img').alt;
+        stage.appendChild(img);
+      } else {
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.video + '?autoplay=1&rel=0&playsinline=1&modestbranding=1';
+        f.title = btn.getAttribute('aria-label');
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        f.allowFullscreen = true;
+        f.className = btn.dataset.short ? 'lightbox__frame--short' : 'lightbox__frame--wide';
+        stage.appendChild(f);
+      }
+      if (lenis) lenis.stop();
+      box.showModal();
+    });
+  }
+
   /* ---------- Booking form ----------
      The Framer form posted to Framer's own inbox. With no backend here, the request is
      handed to WhatsApp, which is how the spa takes bookings. */
@@ -219,14 +293,16 @@
       var d = new FormData(form);
       var msg = 'Hello Dot On Massage Therapy & Spa, I would like to book.\n' +
         'Name: ' + d.get('Name') + '\nEmail: ' + d.get('Email') + '\nPhone: ' + d.get('Phone') + '\nService: ' + d.get('Service');
-      btn.classList.add('is-loading');
-      setTimeout(function () {
-        btn.classList.remove('is-loading');
-        label.textContent = 'Thank you';
-        window.open(WA + encodeURIComponent(msg), '_blank', 'noopener');
-        form.reset();
-        setTimeout(function () { label.textContent = 'Submit'; }, 4000);
-      }, 600);
+      var link = document.createElement('a');
+      link.href = WA + encodeURIComponent(msg);
+      link.target = '_blank';
+      link.rel = 'noopener';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      label.textContent = 'Opening WhatsApp…';
+      form.reset();
+      setTimeout(function () { label.textContent = 'Submit'; }, 4000);
     });
   }
 
